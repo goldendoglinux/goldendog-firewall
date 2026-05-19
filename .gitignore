@@ -1,0 +1,55 @@
+# Python bytecode/cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Test/coverage artifacts
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Local editor/OS files
+.DS_Store
+Thumbs.db
+*~
+*.swp
+*.swo
+
+# Local runtime logs
+firewall.log
+*.log
+
+# gettext compiled catalogs (generated from .po)
+locale/*/LC_MESSAGES/*.mo
+
+# Debian build artifacts (generated)
+.debhelper/
+.debhelper-*/
+.tmp/
+
+# Debhelper generated files in debian/
+debian/debhelper-build-stamp
+debian/files
+debian/*.debhelper
+debian/*.debhelper.log
+debian/*.substvars
+debian/*.postinst.debhelper
+debian/*.postrm.debhelper
+debian/goldendog-firewall/
+
+# Package build outputs in this repo root (if any)
+*.deb
+*.ddeb
+*.changes
+*.build
+*.buildinfo
+*.tar.*
+*.dsc

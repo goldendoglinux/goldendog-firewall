@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Goldendog Firewall
+Comment=A simple UFW interface for Goldendog Linux
+Exec=goldendog-firewall
+Icon=firewall
+Terminal=false
+Type=Application
+Categories=System;Security;Settings;
+Keywords=firewall;ufw;security;network;goldendog;

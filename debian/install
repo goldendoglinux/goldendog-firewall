@@ -1,0 +1,7 @@
+assets/* usr/share/goldendog-firewall/assets
+assets/firewall.svg usr/share/icons/hicolor/scalable/apps
+assets/firewall.svg usr/share/icons/scalable/apps
+src/*.py usr/share/goldendog-firewall/src
+goldendog-firewall.py usr/share/goldendog-firewall
+helpers/ufw-apply usr/libexec/goldendog-firewall
+polkit/org.goldendog.firewall.policy usr/share/polkit-1/actions

@@ -1,0 +1,278 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: goldendog-firewall 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-18 23:40-0300\n"
+"Language: pt_BR\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+#: src/window.py:182
+msgid ""
+"A simple UFW interface for <a href=\"https://goldendoglinux.org\">Goldendog "
+"Linux</a>."
+msgstr ""
+
+#: src/window.py:89 src/window.py:160
+msgid "About"
+msgstr "Sobre"
+
+#: src/window.py:353 src/window.py:366
+msgid "Accept"
+msgstr "Aceitar"
+
+#: src/add_rule_dialog.py:95
+msgid "Add"
+msgstr ""
+
+#: src/add_rule_dialog.py:38
+msgid "Add a Firewall Rule"
+msgstr "Adicionar uma regra de firewall"
+
+#: src/window.py:429
+msgid "Add rule"
+msgstr "Adicionar regra"
+
+#: src/add_rule_dialog.py:72
+msgid "Advanced"
+msgstr "Avançado"
+
+#: src/add_rule_dialog.py:40 src/add_rule_dialog.py:43
+#: src/add_rule_dialog.py:148 src/add_rule_dialog.py:161
+#: src/add_rule_dialog.py:272 src/add_rule_dialog.py:305
+#: src/add_rule_dialog.py:365 src/add_rule_dialog.py:395
+msgid "All Interfaces"
+msgstr "Todas as interfaces"
+
+#: src/add_rule_dialog.py:146 src/add_rule_dialog.py:158
+#: src/add_rule_dialog.py:176 src/add_rule_dialog.py:217
+msgid "Allow"
+msgstr ""
+
+#: src/window.py:192
+msgid "Author"
+msgstr ""
+
+#: src/add_rule_dialog.py:149 src/add_rule_dialog.py:160
+#: src/add_rule_dialog.py:179 src/add_rule_dialog.py:182
+#: src/add_rule_dialog.py:220 src/add_rule_dialog.py:226
+#: src/add_rule_dialog.py:274 src/add_rule_dialog.py:307
+#: src/add_rule_dialog.py:360 src/add_rule_dialog.py:371
+#: src/add_rule_dialog.py:390 src/add_rule_dialog.py:398
+msgid "Both"
+msgstr ""
+
+#: src/add_rule_dialog.py:194
+msgid "Browse services"
+msgstr ""
+
+#: src/window.py:286 src/add_rule_dialog.py:87
+msgid "Close"
+msgstr "Fechar"
+
+#: src/window.py:521
+msgid "Could not apply firewall rules"
+msgstr "Não foi possível aplicar as regras do firewall"
+
+#: src/window.py:540
+msgid "Delete"
+msgstr ""
+
+#: src/window.py:354 src/window.py:367 src/add_rule_dialog.py:176
+#: src/add_rule_dialog.py:217
+msgid "Deny"
+msgstr "Negar"
+
+#: src/add_rule_dialog.py:180 src/add_rule_dialog.py:221
+msgid "Direction:"
+msgstr ""
+
+#: src/window.py:110 src/window.py:115
+msgid "Documentation"
+msgstr ""
+
+#: src/window.py:534
+msgid "Edit"
+msgstr ""
+
+#: src/window.py:439
+msgid "Edit selected rule"
+msgstr "Editar regra selecionada"
+
+#: src/window.py:84
+msgid "Exit"
+msgstr "Sair"
+
+#: src/window.py:85
+msgid "File"
+msgstr "Arquivo"
+
+#: src/window.py:335
+msgid "Firewall"
+msgstr ""
+
+#: src/window.py:385
+msgid "Firewall Rules"
+msgstr "Regras do firewall"
+
+#: src/window.py:347
+msgid "Firewall Settings"
+msgstr "Configurações do firewall"
+
+#: src/window.py:332
+msgid "Firewall Status"
+msgstr "Status do firewall"
+
+#: src/window.py:515
+msgid "Firewall configuration applied successfully."
+msgstr ""
+
+#: src/add_rule_dialog.py:240
+msgid "From:"
+msgstr ""
+
+#: src/window.py:31 src/window.py:48 src/window.py:165 src/window.py:319
+msgid "Goldendog Firewall"
+msgstr "Firewall Goldendog"
+
+#: src/window.py:88 src/window.py:90
+msgid "Help"
+msgstr "Ajuda"
+
+#: src/add_rule_dialog.py:232 src/add_rule_dialog.py:245
+msgid "IP / network"
+msgstr ""
+
+#: src/add_rule_dialog.py:147 src/add_rule_dialog.py:159
+#: src/add_rule_dialog.py:179 src/add_rule_dialog.py:220
+msgid "In"
+msgstr ""
+
+#: src/window.py:350
+msgid "Incoming"
+msgstr "Entrada"
+
+#: src/add_rule_dialog.py:186 src/add_rule_dialog.py:224
+msgid "Interface:"
+msgstr ""
+
+#: src/window.py:129
+msgid ""
+"Learn how to configure and use Goldendog Firewall from the official "
+"documentation."
+msgstr ""
+
+#: src/window.py:208
+msgid "License"
+msgstr ""
+
+#: src/window.py:417
+msgid "Name"
+msgstr "Nome"
+
+#: src/add_rule_dialog.py:174 src/add_rule_dialog.py:215
+msgid "Name:"
+msgstr ""
+
+#: src/window.py:406
+msgid "Nº"
+msgstr ""
+
+#: src/window.py:524
+msgid "OK"
+msgstr ""
+
+#: src/add_rule_dialog.py:179 src/add_rule_dialog.py:220
+msgid "Out"
+msgstr ""
+
+#: src/window.py:363
+msgid "Outgoing"
+msgstr "Saída"
+
+#: src/add_rule_dialog.py:235 src/add_rule_dialog.py:248
+msgid "Pick address"
+msgstr ""
+
+#: src/add_rule_dialog.py:177 src/add_rule_dialog.py:218
+msgid "Policy:"
+msgstr ""
+
+#: src/add_rule_dialog.py:236 src/add_rule_dialog.py:249
+msgid "Port"
+msgstr ""
+
+#: src/add_rule_dialog.py:190
+msgid "Port or service"
+msgstr ""
+
+#: src/add_rule_dialog.py:196
+msgid "Port:"
+msgstr ""
+
+#: src/window.py:323
+msgid "Protect your system enabling the firewall"
+msgstr "Proteja seu sistema habilitando o firewall"
+
+#: src/add_rule_dialog.py:183 src/add_rule_dialog.py:227
+msgid "Protocol:"
+msgstr ""
+
+#: src/add_rule_dialog.py:176 src/add_rule_dialog.py:217
+msgid "Reject"
+msgstr ""
+
+#: src/window.py:434
+msgid "Remove selected rule"
+msgstr "Remover regra selecionada"
+
+#: src/window.py:412
+msgid "Rule"
+msgstr "Regra"
+
+#: src/add_rule_dialog.py:173 src/add_rule_dialog.py:214
+msgid "Rule description"
+msgstr ""
+
+#: src/add_rule_dialog.py:95
+msgid "Save"
+msgstr ""
+
+#: src/window.py:444
+msgid "Save and Apply Rules"
+msgstr "Salvar e aplicar regras"
+
+#: src/add_rule_dialog.py:69
+msgid "Simple"
+msgstr "Simples"
+
+#: src/add_rule_dialog.py:253
+msgid "To:"
+msgstr ""
+
+#: src/window.py:336
+msgid "Turn firewall protection on or off"
+msgstr ""
+
+#~ msgid ""
+#~ "<b>Goldendog Firewall v1.0.0</b>\n"
+#~ "A simple UFW interface for <a href=\"https://"
+#~ "goldendoglinux.org\">Goldendog Linux</a>\n"
+#~ "Author <a href=\"https://github.com/alexiarstein\">Alexia Michelle</a>\n"
+#~ "License <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU GPL "
+#~ "v3.0</a>"
+#~ msgstr ""
+#~ "<b>Firewall Goldendog v1.0.0</b>\n"
+#~ "Uma interface simples do UFW para <a href=\"https://"
+#~ "goldendoglinux.org\">Goldendog Linux</a>\n"
+#~ "Autora <a href=\"https://github.com/alexiarstein\">Alexia Michelle</a>\n"
+#~ "Licença <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU GPL "
+#~ "v3.0</a>"
+
+#~ msgid ""
+#~ "To learn how to use Goldendog Firewall see <a href=\"https://"
+#~ "goldendoglinux.org/docs/firewall\">https://goldendoglinux.org/docs/"
+#~ "firewall</a>"
+#~ msgstr ""
+#~ "Para aprender a usar o Goldendog Firewall, veja <a href=\"https://"
+#~ "goldendoglinux.org/docs/firewall\">https://goldendoglinux.org/docs/"
+#~ "firewall</a>"

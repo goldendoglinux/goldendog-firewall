@@ -1,0 +1,67 @@
+#!/bin/bash
+# Apply firewall defaults, rules, and state in one privileged call.
+
+set -e
+
+if [ "$#" -ne 4 ]; then
+    echo "Usage: $0 <on|off> <allow|deny incoming> <allow|deny outgoing> <rules_file>" >&2
+    exit 1
+fi
+
+ENABLED="$1"
+INCOMING="$2"
+OUTGOING="$3"
+RULES_FILE="$4"
+
+if [ "$ENABLED" != "on" ] && [ "$ENABLED" != "off" ]; then
+    echo "Error: first argument must be on|off" >&2
+    exit 1
+fi
+
+if [ "$INCOMING" != "allow" ] && [ "$INCOMING" != "deny" ]; then
+    echo "Error: second argument must be allow|deny" >&2
+    exit 1
+fi
+
+if [ "$OUTGOING" != "allow" ] && [ "$OUTGOING" != "deny" ]; then
+    echo "Error: third argument must be allow|deny" >&2
+    exit 1
+fi
+
+if [ ! -f "$RULES_FILE" ]; then
+    echo "Error: rules file not found: $RULES_FILE" >&2
+    exit 1
+fi
+
+UFW_BIN="$(command -v ufw || true)"
+if [ -z "$UFW_BIN" ]; then
+    for candidate in /usr/sbin/ufw /sbin/ufw /usr/bin/ufw; do
+        if [ -x "$candidate" ]; then
+            UFW_BIN="$candidate"
+            break
+        fi
+    done
+fi
+
+if [ -z "$UFW_BIN" ]; then
+    echo "Error: ufw is not installed or not found in PATH" >&2
+    exit 1
+fi
+
+"$UFW_BIN" default "$INCOMING" incoming
+"$UFW_BIN" default "$OUTGOING" outgoing
+
+while IFS=$'\t' read -r -a args || [ -n "$args" ]; do
+    if [ "${#args[@]}" -eq 0 ]; then
+        continue
+    fi
+    "$UFW_BIN" "${args[@]}"
+done < "$RULES_FILE"
+
+if [ "$ENABLED" = "on" ]; then
+    "$UFW_BIN" --force enable
+else
+    "$UFW_BIN" --force disable
+fi
+
+echo "Applied firewall settings and rules."

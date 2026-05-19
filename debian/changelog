@@ -1,0 +1,22 @@
+goldendog-firewall (1.0.0-3) unstable; urgency=medium
+
+  * Fix Wayland taskbar icon association by installing desktop file as
+    org.goldendoglinux.firewall.desktop (matching application_id).
+  * Install firewall icon in /usr/share/icons/scalable/apps in addition to
+    hicolor path for compatibility.
+
+ -- Alexia Steinberg <alexia@goldendoglinux.org>  Mon, 19 May 2026 00:10:00 +0000
+
+goldendog-firewall (1.0.0-2) unstable; urgency=medium
+
+  * Fix runtime polkit dependency for distro compatibility
+    (pkexec | polkitd | policykit-1).
+  * Refresh Spanish locale and rebuild translation catalogs.
+
+ -- Alexia Steinberg <alexia@goldendoglinux.org>  Sun, 18 May 2026 23:59:00 +0000
+
+goldendog-firewall (1.0.0-1) unstable; urgency=medium
+
+  * Initial release.
+
+ -- Alexia Steinberg <alexia@goldendoglinux.org>  Sun, 18 May 2026 22:00:00 +0000

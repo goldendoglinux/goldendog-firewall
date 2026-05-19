@@ -1,0 +1,26 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	for lang in de es fr hi ja nl pt_BR zh_CN; do \
+		msgfmt locale/$$lang/LC_MESSAGES/goldendog-firewall.po \
+		       -o locale/$$lang/LC_MESSAGES/goldendog-firewall.mo; \
+	done
+
+override_dh_auto_install:
+	dh_auto_install
+	install -D -m 644 goldendog-firewall.desktop \
+	        debian/goldendog-firewall/usr/share/applications/org.goldendoglinux.firewall.desktop
+	for lang in de es fr hi ja nl pt_BR zh_CN; do \
+		install -D -m 644 locale/$$lang/LC_MESSAGES/goldendog-firewall.mo \
+		        debian/goldendog-firewall/usr/share/locale/$$lang/LC_MESSAGES/goldendog-firewall.mo; \
+	done
+	mkdir -p debian/goldendog-firewall/usr/bin
+	ln -s /usr/share/goldendog-firewall/goldendog-firewall.py debian/goldendog-firewall/usr/bin/goldendog-firewall
+
+override_dh_fixperms:
+	dh_fixperms
+	chmod +x debian/goldendog-firewall/usr/share/goldendog-firewall/goldendog-firewall.py
+	chmod +x debian/goldendog-firewall/usr/libexec/goldendog-firewall/ufw-apply

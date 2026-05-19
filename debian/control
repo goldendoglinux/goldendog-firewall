@@ -1,0 +1,28 @@
+Source: goldendog-firewall
+Section: admin
+Priority: optional
+Maintainer: Alexia Steinberg <alexia@goldendoglinux.org>
+Build-Depends: debhelper-compat (= 13),
+               python3,
+               gettext
+Standards-Version: 4.6.0
+Homepage: https://goldendoglinux.org
+
+Package: goldendog-firewall
+Architecture: all
+Depends: ${misc:Depends},
+         python3,
+         python3-gi,
+         gir1.2-gtk-4.0,
+         gir1.2-adw-1,
+         ufw,
+         pkexec | polkitd | policykit-1
+Description: Simple UFW GUI for Goldendog Linux
+ A GTK4/libadwaita interface for configuring UFW firewall defaults
+ and rules with a simplified workflow.
+ .
+ Features:
+  - Toggle firewall state and default inbound/outbound policy
+  - Add/edit/remove simple and advanced UFW rules
+  - Privileged apply via pkexec helper
+  - Multi-language support
