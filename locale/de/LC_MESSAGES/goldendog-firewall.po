@@ -11,6 +11,8 @@ msgid ""
 "A simple UFW interface for <a href=\"https://goldendoglinux.org\">Goldendog "
 "Linux</a>."
 msgstr ""
+"Eine einfache UFW-Oberfläche für <a href=\"https://goldendoglinux.org\">"
+"Goldendog Linux</a>."
 
 #: src/window.py:89 src/window.py:160
 msgid "About"
@@ -18,7 +20,7 @@ msgstr "Über"
 
 #: src/add_rule_dialog.py:95
 msgid "Add"
-msgstr ""
+msgstr "Hinzufügen"
 
 #: src/add_rule_dialog.py:38
 msgid "Add a Firewall Rule"
@@ -55,11 +57,11 @@ msgstr "Autorin"
 #: src/add_rule_dialog.py:360 src/add_rule_dialog.py:371
 #: src/add_rule_dialog.py:390 src/add_rule_dialog.py:398
 msgid "Both"
-msgstr ""
+msgstr "Beide"
 
 #: src/add_rule_dialog.py:194
 msgid "Browse services"
-msgstr ""
+msgstr "Dienste durchsuchen"
 
 #: src/window.py:286 src/add_rule_dialog.py:87
 msgid "Close"
@@ -71,7 +73,7 @@ msgstr "Firewall-Regeln konnten nicht angewendet werden"
 
 #: src/window.py:540
 msgid "Delete"
-msgstr ""
+msgstr "Löschen"
 
 #: src/window.py:354 src/window.py:367 src/add_rule_dialog.py:176
 #: src/add_rule_dialog.py:217
@@ -80,7 +82,7 @@ msgstr "Blockieren"
 
 #: src/add_rule_dialog.py:180 src/add_rule_dialog.py:221
 msgid "Direction:"
-msgstr ""
+msgstr "Richtung:"
 
 #: src/window.py:110 src/window.py:115
 msgid "Documentation"
@@ -88,7 +90,7 @@ msgstr "Dokumentation"
 
 #: src/window.py:534
 msgid "Edit"
-msgstr ""
+msgstr "Bearbeiten"
 
 #: src/window.py:439
 msgid "Edit selected rule"
@@ -104,7 +106,7 @@ msgstr "Datei"
 
 #: src/window.py:335
 msgid "Firewall"
-msgstr ""
+msgstr "Firewall"
 
 #: src/window.py:385
 msgid "Firewall Rules"
@@ -120,11 +122,11 @@ msgstr "Firewall-Status"
 
 #: src/window.py:515
 msgid "Firewall configuration applied successfully."
-msgstr ""
+msgstr "Firewall-Konfiguration erfolgreich angewendet."
 
 #: src/add_rule_dialog.py:240
 msgid "From:"
-msgstr ""
+msgstr "Von:"
 
 #: src/window.py:31 src/window.py:48 src/window.py:165 src/window.py:319
 msgid "Goldendog Firewall"
@@ -136,12 +138,12 @@ msgstr "Hilfe"
 
 #: src/add_rule_dialog.py:232 src/add_rule_dialog.py:245
 msgid "IP / network"
-msgstr ""
+msgstr "IP / Netzwerk"
 
 #: src/add_rule_dialog.py:147 src/add_rule_dialog.py:159
 #: src/add_rule_dialog.py:179 src/add_rule_dialog.py:220
 msgid "In"
-msgstr ""
+msgstr "Eingehend"
 
 #: src/window.py:350
 msgid "Incoming"
@@ -149,7 +151,7 @@ msgstr "Eingehend"
 
 #: src/add_rule_dialog.py:186 src/add_rule_dialog.py:224
 msgid "Interface:"
-msgstr ""
+msgstr "Schnittstelle:"
 
 #: src/window.py:129
 msgid ""
@@ -169,19 +171,19 @@ msgstr "Name"
 
 #: src/add_rule_dialog.py:174 src/add_rule_dialog.py:215
 msgid "Name:"
-msgstr ""
+msgstr "Name:"
 
 #: src/window.py:406
 msgid "Nº"
-msgstr ""
+msgstr "Nr."
 
 #: src/window.py:524
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: src/add_rule_dialog.py:179 src/add_rule_dialog.py:220
 msgid "Out"
-msgstr ""
+msgstr "Ausgehend"
 
 #: src/window.py:363
 msgid "Outgoing"
@@ -189,23 +191,23 @@ msgstr "Ausgehend"
 
 #: src/add_rule_dialog.py:235 src/add_rule_dialog.py:248
 msgid "Pick address"
-msgstr ""
+msgstr "Adresse auswählen"
 
 #: src/add_rule_dialog.py:177 src/add_rule_dialog.py:218
 msgid "Policy:"
-msgstr ""
+msgstr "Richtlinie:"
 
 #: src/add_rule_dialog.py:236 src/add_rule_dialog.py:249
 msgid "Port"
-msgstr ""
+msgstr "Port"
 
 #: src/add_rule_dialog.py:190
 msgid "Port or service"
-msgstr ""
+msgstr "Port oder Dienst"
 
 #: src/add_rule_dialog.py:196
 msgid "Port:"
-msgstr ""
+msgstr "Port:"
 
 #: src/window.py:323
 msgid "Protect your system enabling the firewall"
@@ -213,11 +215,11 @@ msgstr "Schützen Sie Ihr System, indem Sie die Firewall aktivieren"
 
 #: src/add_rule_dialog.py:183 src/add_rule_dialog.py:227
 msgid "Protocol:"
-msgstr ""
+msgstr "Protokoll:"
 
 #: src/add_rule_dialog.py:176 src/add_rule_dialog.py:217
 msgid "Reject"
-msgstr ""
+msgstr "Ablehnen"
 
 #: src/window.py:434
 msgid "Remove selected rule"
@@ -229,11 +231,11 @@ msgstr "Regel"
 
 #: src/add_rule_dialog.py:173 src/add_rule_dialog.py:214
 msgid "Rule description"
-msgstr ""
+msgstr "Regelbeschreibung"
 
 #: src/add_rule_dialog.py:95
 msgid "Save"
-msgstr ""
+msgstr "Speichern"
 
 #: src/window.py:444
 msgid "Save and Apply Rules"
@@ -245,11 +247,11 @@ msgstr "Einfach"
 
 #: src/add_rule_dialog.py:253
 msgid "To:"
-msgstr ""
+msgstr "Nach:"
 
 #: src/window.py:336
 msgid "Turn firewall protection on or off"
-msgstr ""
+msgstr "Firewall-Schutz ein- oder ausschalten"
 
 #~ msgid ""
 #~ "<b>Goldendog Firewall v1.0.0</b>\n"

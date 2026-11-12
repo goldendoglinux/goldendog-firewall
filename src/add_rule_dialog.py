@@ -122,6 +122,32 @@ class AddRuleDialog(Adw.Window):
         dd.set_hexpand(True)
         return dd
 
+    def _choice_dropdown(self, choices):
+        """
+        Dropdown of (ufw keyword, translated label) pairs. The label is only
+        for display: ufw commands are built from the keyword, so a translated
+        "Permitir" never ends up as "ufw permitir".
+        """
+        dd = self._dropdown([label for _key, label in choices])
+        dd.gd_keys = [key for key, _label in choices]
+        return dd
+
+    def _selected_key(self, dropdown):
+        return dropdown.gd_keys[dropdown.get_selected()]
+
+    def _set_dropdown_key(self, dropdown, key):
+        if key in dropdown.gd_keys:
+            dropdown.set_selected(dropdown.gd_keys.index(key))
+
+    def _policy_choices(self):
+        return [("allow", _("Allow")), ("deny", _("Deny")), ("reject", _("Reject"))]
+
+    def _direction_choices(self):
+        return [("in", _("In")), ("out", _("Out")), ("both", _("Both"))]
+
+    def _protocol_choices(self):
+        return [("tcp", "TCP"), ("udp", "UDP"), ("both", _("Both"))]
+
     def _entry(self, placeholder):
         e = Gtk.Entry()
         e.set_placeholder_text(placeholder)
@@ -143,10 +169,10 @@ class AddRuleDialog(Adw.Window):
         if mode == "advanced":
             self.notebook.set_current_page(1)
             self.a_name.set_text(data.get("name", ""))
-            self._set_dropdown_text(self.a_policy, data.get("policy", _("Allow")))
-            self._set_dropdown_text(self.a_direction, data.get("direction", _("In")))
+            self._set_dropdown_key(self.a_policy, data.get("policy", "allow"))
+            self._set_dropdown_key(self.a_direction, data.get("direction", "in"))
             self._set_dropdown_text(self.a_interface, data.get("interface", _("All Interfaces")))
-            self._set_dropdown_text(self.a_protocol, data.get("protocol", _("Both")))
+            self._set_dropdown_key(self.a_protocol, data.get("protocol", "both"))
             self.a_from_ip.set_text(data.get("from_ip", ""))
             self.a_from_port.set_text(data.get("from_port", ""))
             self.a_to_ip.set_text(data.get("to_ip", ""))
@@ -155,9 +181,9 @@ class AddRuleDialog(Adw.Window):
 
         self.notebook.set_current_page(0)
         self.s_name.set_text(data.get("name", ""))
-        self._set_dropdown_text(self.s_policy, data.get("policy", _("Allow")))
-        self._set_dropdown_text(self.s_direction, data.get("direction", _("In")))
-        self._set_dropdown_text(self.s_protocol, data.get("protocol", _("Both")))
+        self._set_dropdown_key(self.s_policy, data.get("policy", "allow"))
+        self._set_dropdown_key(self.s_direction, data.get("direction", "in"))
+        self._set_dropdown_key(self.s_protocol, data.get("protocol", "both"))
         self._set_dropdown_text(self.s_interface, data.get("interface", _("All Interfaces")))
         self.s_port.set_text(data.get("port", ""))
 
@@ -173,13 +199,13 @@ class AddRuleDialog(Adw.Window):
         self.s_name = self._entry(_("Rule description"))
         box.append(self._form_row(_("Name:"), self.s_name))
 
-        self.s_policy = self._dropdown([_("Allow"), _("Deny"), _("Reject")])
+        self.s_policy = self._choice_dropdown(self._policy_choices())
         box.append(self._form_row(_("Policy:"), self.s_policy))
 
-        self.s_direction = self._dropdown([_("In"), _("Out"), _("Both")])
+        self.s_direction = self._choice_dropdown(self._direction_choices())
         box.append(self._form_row(_("Direction:"), self.s_direction))
 
-        self.s_protocol = self._dropdown(["TCP", "UDP", _("Both")])
+        self.s_protocol = self._choice_dropdown(self._protocol_choices())
         box.append(self._form_row(_("Protocol:"), self.s_protocol))
 
         self.s_interface = self._dropdown(self.interfaces)
@@ -214,16 +240,16 @@ class AddRuleDialog(Adw.Window):
         self.a_name = self._entry(_("Rule description"))
         box.append(self._form_row(_("Name:"), self.a_name))
 
-        self.a_policy = self._dropdown([_("Allow"), _("Deny"), _("Reject")])
+        self.a_policy = self._choice_dropdown(self._policy_choices())
         box.append(self._form_row(_("Policy:"), self.a_policy))
 
-        self.a_direction = self._dropdown([_("In"), _("Out"), _("Both")])
+        self.a_direction = self._choice_dropdown(self._direction_choices())
         box.append(self._form_row(_("Direction:"), self.a_direction))
 
         self.a_interface = self._dropdown(self.interfaces)
         box.append(self._form_row(_("Interface:"), self.a_interface))
 
-        self.a_protocol = self._dropdown(["TCP", "UDP", _("Both")])
+        self.a_protocol = self._choice_dropdown(self._protocol_choices())
         box.append(self._form_row(_("Protocol:"), self.a_protocol))
 
         # From: IP + IP picker + Port
@@ -261,18 +287,18 @@ class AddRuleDialog(Adw.Window):
 
         if page == 0:
             # Simple rule
-            policy = self._selected_text(self.s_policy)
-            direction = self._selected_text(self.s_direction)
-            protocol = self._selected_text(self.s_protocol)
+            policy = self._selected_key(self.s_policy)
+            direction = self._selected_key(self.s_direction)
+            protocol = self._selected_key(self.s_protocol)
             interface = self._selected_text(self.s_interface)
             port = self.s_port.get_text().strip()
             name = self.s_name.get_text().strip()
 
-            parts = [policy.lower(), direction.lower()]
+            parts = [policy, direction]
             if interface != _("All Interfaces"):
                 parts.append(f"on {interface}")
-            if protocol != _("Both"):
-                parts.append(protocol.lower())
+            if protocol != "both":
+                parts.append(protocol)
             if port:
                 parts.append(port)
             rule_str = " ".join(parts)
@@ -291,9 +317,9 @@ class AddRuleDialog(Adw.Window):
             }
         else:
             # Advanced rule
-            policy = self._selected_text(self.a_policy)
-            direction = self._selected_text(self.a_direction)
-            protocol = self._selected_text(self.a_protocol)
+            policy = self._selected_key(self.a_policy)
+            direction = self._selected_key(self.a_direction)
+            protocol = self._selected_key(self.a_protocol)
             interface = self._selected_text(self.a_interface)
             from_ip = self.a_from_ip.get_text().strip()
             from_port = self.a_from_port.get_text().strip()
@@ -301,11 +327,11 @@ class AddRuleDialog(Adw.Window):
             to_port = self.a_to_port.get_text().strip()
             name = self.a_name.get_text().strip()
 
-            parts = [policy.lower(), direction.lower()]
+            parts = [policy, direction]
             if interface != _("All Interfaces"):
                 parts.append(f"on {interface}")
-            if protocol != _("Both"):
-                parts.append(protocol.lower())
+            if protocol != "both":
+                parts.append(protocol)
             if from_ip or from_port:
                 from_part = "from"
                 if from_ip:
@@ -356,8 +382,8 @@ class AddRuleDialog(Adw.Window):
         return item.get_string() if item else ""
 
     def _build_simple_ufw_args(self, policy, direction, protocol, interface, port):
-        action = policy.lower()
-        directions = ["in", "out"] if direction == _("Both") else [direction.lower()]
+        action = policy
+        directions = ["in", "out"] if direction == "both" else [direction]
         arg_sets = []
 
         for current_direction in directions:
@@ -368,8 +394,8 @@ class AddRuleDialog(Adw.Window):
             if port:
                 args.extend(["to", "any", "port", port])
 
-            if protocol != _("Both"):
-                args.extend(["proto", protocol.lower()])
+            if protocol != "both":
+                args.extend(["proto", protocol])
 
             arg_sets.append(args)
 
@@ -386,8 +412,8 @@ class AddRuleDialog(Adw.Window):
         to_ip,
         to_port,
     ):
-        action = policy.lower()
-        directions = ["in", "out"] if direction == _("Both") else [direction.lower()]
+        action = policy
+        directions = ["in", "out"] if direction == "both" else [direction]
         arg_sets = []
 
         for current_direction in directions:
@@ -395,8 +421,8 @@ class AddRuleDialog(Adw.Window):
             if interface != _("All Interfaces"):
                 args.extend(["on", interface])
 
-            if protocol != _("Both"):
-                args.extend(["proto", protocol.lower()])
+            if protocol != "both":
+                args.extend(["proto", protocol])
 
             args.extend(["from", from_ip if from_ip else "any"])
             if from_port:

@@ -1,3 +1,15 @@
+goldendog-firewall (1.0.0-6) unstable; urgency=medium
+
+  * Fix rules in any language but English: the rule dialog built the ufw
+    command from the translated dropdown text ("ufw permitir ...",
+    "ufw blockieren ..."), which ufw rejects. Dropdowns now carry the
+    ufw keyword (allow/deny/reject, in/out, tcp/udp) and only show the
+    translation.
+  * German: complete the translation (Add, Delete, Edit, Save, Direction,
+    Protocol, Reject, ...).
+
+ -- Alexia Michelle <alexia@goldendoglinux.org>  Thu, 12 Nov 2026 16:10:00 -0300
+
 goldendog-firewall (1.0.0-5) unstable; urgency=medium
 
   * Default policy radios (Incoming/Outgoing) say "Allow" instead of
