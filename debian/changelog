@@ -1,3 +1,12 @@
+goldendog-firewall (1.0.0-4) unstable; urgency=medium
+
+  * Load the real UFW state (/etc/ufw/ufw.conf, /etc/default/ufw) on
+    startup instead of a hardcoded "off" switch and default policies.
+    Previously, saving a new rule on an active firewall disabled it.
+  * Show "Status: active/inactive" under the firewall switch.
+
+ -- Alexia Michelle <alexia@goldendoglinux.org>  Thu, 12 Nov 2026 12:00:00 -0300
+
 goldendog-firewall (1.0.0-3) unstable; urgency=medium
 
   * Fix Wayland taskbar icon association by installing desktop file as

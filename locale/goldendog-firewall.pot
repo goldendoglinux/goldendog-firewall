@@ -263,3 +263,11 @@ msgstr ""
 #: src/window.py:336
 msgid "Turn firewall protection on or off"
 msgstr ""
+
+#: src/window.py
+msgid "Status: active"
+msgstr ""
+
+#: src/window.py
+msgid "Status: inactive (enabling it is recommended)"
+msgstr ""

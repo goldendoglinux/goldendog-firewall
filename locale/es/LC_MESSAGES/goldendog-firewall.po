@@ -284,3 +284,11 @@ msgstr "Encender o apagar proteccion de firewall"
 #~ "Para aprender a usar Goldendog Firewall, consulta <a href=\"https://"
 #~ "goldendoglinux.org/docs/firewall\">https://goldendoglinux.org/docs/"
 #~ "firewall</a>"
+
+#: src/window.py
+msgid "Status: active"
+msgstr "Estado: activo"
+
+#: src/window.py
+msgid "Status: inactive (enabling it is recommended)"
+msgstr "Estado: inactivo (se recomienda activarlo)"

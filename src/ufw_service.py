@@ -25,6 +25,41 @@ def _resolve_ufw_bin():
     return "ufw"
 
 
+def _read_shell_vars(path):
+    values = {}
+    with open(path, encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if not line or line.startswith("#") or "=" not in line:
+                continue
+            key, val = line.split("=", 1)
+            values[key.strip()] = val.strip().strip('"').strip("'")
+    return values
+
+
+def read_firewall_state():
+    """
+    Read the configured UFW state without root privileges
+    (/etc/ufw/ufw.conf and /etc/default/ufw are world-readable).
+    Returns dict(enabled, incoming, outgoing) with policies "allow"/"deny",
+    or None if the files cannot be read.
+    """
+    try:
+        conf = _read_shell_vars("/etc/ufw/ufw.conf")
+        defaults = _read_shell_vars("/etc/default/ufw")
+    except OSError:
+        return None
+
+    def policy(value):
+        return "deny" if value.upper() in ("DROP", "REJECT") else "allow"
+
+    return {
+        "enabled": conf.get("ENABLED", "no").lower() == "yes",
+        "incoming": policy(defaults.get("DEFAULT_INPUT_POLICY", "DROP")),
+        "outgoing": policy(defaults.get("DEFAULT_OUTPUT_POLICY", "ACCEPT")),
+    }
+
+
 def list_network_interfaces():
     """Return interface names for dropdowns, excluding loopback."""
     base = "/sys/class/net"

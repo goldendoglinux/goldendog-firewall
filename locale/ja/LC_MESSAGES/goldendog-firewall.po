@@ -275,3 +275,11 @@ msgstr ""
 #~ msgstr ""
 #~ "Goldendog Firewall の使い方は <a href=\"https://goldendoglinux.org/docs/"
 #~ "firewall\">https://goldendoglinux.org/docs/firewall</a> をご覧ください"
+
+#: src/window.py
+msgid "Status: active"
+msgstr "状態: 有効"
+
+#: src/window.py
+msgid "Status: inactive (enabling it is recommended)"
+msgstr "状態: 無効（有効にすることをおすすめします）"

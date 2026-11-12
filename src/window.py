@@ -61,6 +61,25 @@ class FirewallWindow(Adw.ApplicationWindow):
         main_box.append(self._build_settings_section())
         main_box.append(self._build_rules_section())
 
+        self._load_firewall_state()
+
+    def _load_firewall_state(self):
+        """Reflect the real UFW configuration so saving never flips it by accident."""
+        from .ufw_service import read_firewall_state
+
+        state = read_firewall_state()
+        if state is None:
+            return
+        self.status_switch.set_active(state["enabled"])
+        self.incoming_deny_radio.set_active(state["incoming"] == "deny")
+        self.incoming_accept_radio.set_active(state["incoming"] == "allow")
+        self.outgoing_deny_radio.set_active(state["outgoing"] == "deny")
+        self.outgoing_accept_radio.set_active(state["outgoing"] == "allow")
+        if state["enabled"]:
+            self.status_row.set_subtitle(_("Status: active"))
+        else:
+            self.status_row.set_subtitle(_("Status: inactive (enabling it is recommended)"))
+
     # ── Icon registration ─────────────────────────────────────────────────────
 
     def _register_icon(self):
@@ -339,6 +358,7 @@ class FirewallWindow(Adw.ApplicationWindow):
         self.status_switch.set_valign(Gtk.Align.CENTER)
         row.add_suffix(self.status_switch)
         group.add(row)
+        self.status_row = row
 
         return group
 
@@ -514,6 +534,7 @@ class FirewallWindow(Adw.ApplicationWindow):
         if ok:
             toast = Adw.Toast.new(_("Firewall configuration applied successfully."))
             self.toast_overlay.add_toast(toast)
+            self._load_firewall_state()
             return
 
         dialog = Adw.MessageDialog.new(

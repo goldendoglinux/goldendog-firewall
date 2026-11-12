@@ -276,3 +276,11 @@ msgstr ""
 #~ "要了解如何使用 Goldendog 防火墙，请参阅 <a href=\"https://"
 #~ "goldendoglinux.org/docs/firewall\">https://goldendoglinux.org/docs/"
 #~ "firewall</a>"
+
+#: src/window.py
+msgid "Status: active"
+msgstr "状态：已启用"
+
+#: src/window.py
+msgid "Status: inactive (enabling it is recommended)"
+msgstr "状态：未启用（建议启用）"
