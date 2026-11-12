@@ -22,10 +22,6 @@ msgstr "Una interfaz simple de ufw para <a href=\"https://goldendoglinux.org\">G
 msgid "About"
 msgstr "Acerca de"
 
-#: src/window.py:353 src/window.py:366
-msgid "Accept"
-msgstr "Aceptar"
-
 #: src/add_rule_dialog.py:95
 msgid "Add"
 msgstr "Agregar"

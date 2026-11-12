@@ -16,10 +16,6 @@ msgstr ""
 msgid "About"
 msgstr "À propos"
 
-#: src/window.py:353 src/window.py:366
-msgid "Accept"
-msgstr "Autoriser"
-
 #: src/add_rule_dialog.py:95
 msgid "Add"
 msgstr ""
@@ -46,7 +42,7 @@ msgstr "Toutes les interfaces"
 #: src/add_rule_dialog.py:146 src/add_rule_dialog.py:158
 #: src/add_rule_dialog.py:176 src/add_rule_dialog.py:217
 msgid "Allow"
-msgstr ""
+msgstr "Autoriser"
 
 #: src/window.py:192
 msgid "Author"

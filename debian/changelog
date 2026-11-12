@@ -1,3 +1,12 @@
+goldendog-firewall (1.0.0-5) unstable; urgency=medium
+
+  * Default policy radios (Incoming/Outgoing) say "Allow" instead of
+    "Accept" ("Permitir" in Spanish), matching ufw and the rule dialog.
+  * Translate "Allow" in all languages (only Spanish had it, so the rule
+    dialog showed it in English); drop the unused "Accept" string.
+
+ -- Alexia Michelle <alexia@goldendoglinux.org>  Thu, 12 Nov 2026 19:00:00 -0300
+
 goldendog-firewall (1.0.0-4) unstable; urgency=medium
 
   * Load the real UFW state (/etc/ufw/ufw.conf, /etc/default/ufw) on

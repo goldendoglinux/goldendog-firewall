@@ -27,10 +27,6 @@ msgstr ""
 msgid "About"
 msgstr ""
 
-#: src/window.py:353 src/window.py:366
-msgid "Accept"
-msgstr ""
-
 #: src/add_rule_dialog.py:95
 msgid "Add"
 msgstr ""
